@@ -1,0 +1,227 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, change you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+
+//
+// Override Bootstrap here
+//
+
+// Toggle global options
+//$enable-gradients: true;
+$enable-shadows: true;
+
+// Customize some defaults
+$red: #ED1C24;
+$primary: $red !default;
+$body-color: #231F20;
+$body-bg: #ffffff;
+$border-radius: 0;
+$font-family-sans-serif: 'Rubik', sans-serif;
+
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+ @import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Import just the styles you need. Note that some stylesheets are required no matter what.
+
+//@import "bootstrap/scss/functions"; // Required
+//@import "bootstrap/scss/variables"; // Required
+//@import "bootstrap/scss/mixins"; // Required
+// @import "bootstrap/scss/root";
+//@import "bootstrap/scss/reboot"; // Required
+//@import "bootstrap/scss/type";
+// @import "bootstrap/scss/images";
+// @import "bootstrap/scss/code";
+//@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/tables";
+// @import "bootstrap/scss/forms";
+//@import "bootstrap/scss/buttons";
+//@import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/input-group"; // Requires forms
+// @import "bootstrap/scss/custom-forms";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar"; // Requires nav
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/jumbotron";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/media";
+// @import "bootstrap/scss/list-group";
+//@import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+//@import "bootstrap/scss/modal"; // Requires transitions
+// @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+//@import "bootstrap/scss/utilities";
+// @import "bootstrap/scss/print";
+
+
+
+//
+// Custom styles
+//
+
+
+
+// Style Bootstrap icons
+.bi {
+  fill: currentColor;
+}
+.main-nav{
+  .nav-item a{
+    color: $body-color;
+    font-weight: bold; 
+    font-size: small;
+  }
+  .nav-item.active a{
+    color: $primary;
+  }
+  .nav-item.active{
+    border-bottom: 4px solid $primary;
+  }
+  .nav-item:hover{
+    border-bottom: 4px solid $primary;
+    color: $primary;
+  }
+  .nav-item{
+    .nav-link{
+      text-transform: uppercase;
+    }
+  }
+.menu-link-0{
+  padding-left: 0.75rem;
+}
+ .menu-link-1{
+   padding-left: 16.75rem;
+ }
+ .menu-link-2{
+   padding-left: 24.75rem;
+ }
+ .menu-link-3{
+  padding-left:8.75rem ;
+ }
+ .dropdown-menu{
+  background:#FFF1F1;
+  margin-top: 0;
+ }
+.dropdown-menu.show{
+  transition: visibility .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+}
+
+body.offcanvas-active{
+	overflow:hidden;
+}
+.custom-numbering{
+  ol {list-style: none; counter-reset: li}
+  li::before {content: counter(li)"."; color:$primary;
+    display: inline-block; width: 1em;
+    margin-left: -1em}
+  li {counter-increment: li} 
+  .p-quotes{
+    top:-16px;
+    left: 0;
+    color: #cccccc;
+  }
+  li{
+    margin-bottom: 24px;
+  }
+}
+.img-margin-neg{
+  margin-top: -50px;
+}
+.p-quotes{
+  top:-16px;
+  left: 0;
+  color: #cccccc;
+}
+.jumbotron-cta{
+  padding:15rem 2rem;
+}
+.carousel-home{
+  .carousel-control-prev,
+  .carousel-control-next {
+    top:auto;
+    border: 1px solid #ffffff;
+    height: 3rem;
+    width: 3rem;
+  }
+  .carousel-control-prev {
+    left: auto;
+    right: 3rem;
+   
+  }
+  .carousel-control-next {
+    right: 0;
+  }
+  .carousel-indicators {
+    right: 0;
+    top: 5%;
+    bottom: auto;
+    left: auto;
+    margin-left: 0;
+    margin-right: 0;;
+  }
+  background:#F1F1F1;
+  min-height: 60vh;
+}
+@include media-breakpoint-down(md) {
+  .offcanvas-header{ display:block; }
+  .navbar-collapse {
+    position: fixed;
+    top:0; 
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color:white;
+    transition: visibility .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    z-index: 1000;
+  }
+  .navbar-collapse.show {
+    visibility: visible;
+    transform: translateX(-100%);
+  }
+  .main-nav{
+    .menu-link-0, .menu-link-1,.menu-link-2,.menu-link-3{
+      padding-left:0 ;
+     }
+  }
+  .img-margin-neg{
+    margin-top: 0;
+  }
+
+}
+@include media-breakpoint-down(sm) {
+  .carousel-bg{
+    height: 100vh;
+    opacity: 0.9;
+  }
+}

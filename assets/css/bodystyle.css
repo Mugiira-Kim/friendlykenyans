@@ -1,0 +1,33 @@
+body {
+    padding-top: 10.1em;
+}
+
+@media screen and (max-width: 320px) {
+    body {
+        padding-top: 0em;
+    }
+   
+}
+
+@media screen and (max-width: 375px) {
+    body {
+        padding-top: 0em;
+    }
+}
+@media screen and (max-width: 425px) {
+    body {
+        padding-top: 0em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 3.2em;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    body {
+        padding-top: 3.2em;
+    }
+}
